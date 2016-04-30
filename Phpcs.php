@@ -39,6 +39,7 @@ class Phpcs {
 
 
 	public function getallaccountsconfirmedbalance() {
+	//Gets the total confirmed balance across all accounts and addresses
 		
 		$data = array(
 			"apiKey" => $this->apikey
@@ -48,6 +49,109 @@ class Phpcs {
 
 		return $this->process($url,$data);		
 	}
+
+
+    public function getaccountconfirmedbalance() {
+    //Gets the confirmed balance on an account/ wallet.
+        
+        $data = array(
+            "apiKey" => $this->apikey,
+			"walletID" => $this->wid
+        );
+
+        $url = "/auth/getaccountconfirmedbalance";
+
+        return $this->process($url,$data);      
+    }
+
+
+    public function getaccounts() {
+    //Gets all users accounts/ wallet details.
+        
+        $data = array(
+            "apiKey" => $this->apikey
+        );
+
+        $url = "/auth/getaccounts";
+
+        return $this->process($url,$data);      
+    }
+
+    public function getallaccountsunconfirmedbalance() {
+    //Gets the total unconfirmed balance across all accounts and addresses
+        
+        $data = array(
+            "apiKey" => $this->apikey
+        );
+
+        $url = "/auth/getallaccountsunconfirmedbalance";
+
+        return $this->process($url,$data);      
+    }
+
+    public function getaccountaddresses() {
+    //Gets the Bitcoin address based on account/ wallet name.
+        
+        $data = array(
+            "apiKey" => $this->apikey,
+			"walletID" => $this->wid
+        );
+
+        $url = "/auth/getaccountaddresses";
+
+        return $this->process($url,$data);      
+    }
+
+    public function getaddressunconfirmedbalance($address) {
+    //Gets the total unconfirmed balance on a user addresses.
+        
+        $data = array(
+            "apiKey" => $this->apikey,
+			"address" => address
+        );
+
+        $url = "/auth/getaddressunconfirmedbalance";
+
+        return $this->process($url,$data);      
+    }
+
+    public function getaccountunconfirmedbalance() {
+    //Gets the unconfirmed balance on an account/ wallet.
+        
+        $data = array(
+            "apiKey" => $this->apikey,
+			"walletID" => $this->wid
+        );
+
+        $url = "/auth/getaccountunconfirmedbalance";
+
+        return $this->process($url,$data);      
+    }
+
+    public function getaddressconfirmedbalance($address) {
+    //Gets the total confirmed balance on a user addresses
+        
+        $data = array(
+            "apiKey" => $this->apikey,
+			"address" => address
+        );
+
+        $url = "/auth/getaddressconfirmedbalance";
+
+        return $this->process($url,$data);      
+    }
+
+    public function getunverifiedaccountwithdraws() {
+    //Gets a list of unverified Withdrawals for a Wallet.
+        
+        $data = array(
+            "apiKey" => $this->apikey
+        );
+
+        $url = "/auth/getunverifiedaccountwithdraws";
+
+        return $this->process($url,$data);      
+    }
 
 }
 
